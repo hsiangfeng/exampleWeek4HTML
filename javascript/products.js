@@ -1,5 +1,5 @@
 import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.9/vue.esm-browser.js';
-import pagination from './components/pagination.js';
+import paginationComponents from './components/pagination.js';
 import prodModal from './components/prodModal.js';
 import delModal from './components/delModal.js';
 
@@ -69,23 +69,7 @@ createApp({
   },
 })
   // 分頁元件
-  .component('pagination', {
-    template: pagination,
-    props: {
-      pages: {
-        type: Object,
-        default() {
-          return {
-          }
-        }
-      }
-    },
-    methods: {
-      emitPages(item) {
-        this.$emit('emit-pages', item);
-      },
-    },
-  })
+  .component('pagination', paginationComponents)
   // 產品新增/編輯元件
   .component('productModal', {
     template: prodModal,
